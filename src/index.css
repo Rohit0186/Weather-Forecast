@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: 210 40% 98%;
+    --text-primary: 222 47% 11%;
+    --text-secondary: 215 16% 47%;
+    --border: 214 32% 91%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --bg-main: 222 47% 6%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 65%;
+    --border: 217 33% 17%;
+    --accent: 217 91% 65%;
+    --accent-foreground: 222 47% 6%;
+  }
+
+  body {
+    @apply antialiased bg-[hsl(var(--bg-main))] text-[hsl(var(--text-primary))] selection:bg-blue-100;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply w-full max-w-3xl mx-auto px-6;
+  }
+
+  .product-card {
+    @apply bg-white dark:bg-slate-900/50 rounded-3xl border border-[hsl(var(--border))] p-6 shadow-sm;
+  }
+
+  .label-standard {
+    @apply text-sm font-semibold text-[hsl(var(--text-secondary))];
+  }
+
+  .value-large {
+    @apply text-lg font-bold tracking-tight;
+  }
+}
+
+/* Smooth Product Transitions */
+* { @apply transition-all duration-300 ease-in-out; }
+.hover-scale { @apply hover:scale-[1.02] active:scale-[0.98]; }
